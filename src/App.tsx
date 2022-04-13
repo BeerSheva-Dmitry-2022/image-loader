@@ -5,7 +5,6 @@ const URL = "http://j0.wlmediahub.com/App_Themes/api/test/photos.js";
 
 function App() {
 
-  const first = useRef(0);
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImages, setcurrentImages] = useState([]);
