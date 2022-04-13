@@ -1,16 +1,19 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 
 const URL = "http://j0.wlmediahub.com/App_Themes/api/test/photos.js";
 
 function App() {
 
+  const first = useRef(0);
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [currentImages, setcurrentImages] = useState([]);
   const [focus, setFocus] = useState(false);
+  
 
   useMemo(async () => {
+    console.log("GET");
     const requestInit: RequestInit = {};
     requestInit.method = "GET";
     const response = await fetch(URL, requestInit);
@@ -18,6 +21,8 @@ function App() {
       setImages(value.photo);
     })
   }, []);
+
+
 
   useEffect(() => {
     shuffleArray();
